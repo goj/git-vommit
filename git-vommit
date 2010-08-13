@@ -2,11 +2,9 @@
 
 import sys, os
 import urllib2
-from BeautifulSoup import BeautifulSoup
 
 def msg():
-    html = urllib2.urlopen('http://whatthecommit.com/').read()
-    return BeautifulSoup(html).find(id='content').p.string.strip()
+    return urllib2.urlopen('http://whatthecommit.com/index.txt').read().strip()
 
 if __name__ == '__main__':
     do_it = sys.stdout.write if '--wimp' in sys.argv else os.system
